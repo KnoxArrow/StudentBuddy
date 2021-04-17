@@ -7,7 +7,8 @@ import android.os.Bundle;
 import com.nitukbt19.StudentBuddy.databinding.ActivityDoubtSessionPageBinding;
 
 public class DoubtSessionPage extends AppCompatActivity {
-ActivityDoubtSessionPageBinding binding;
+    ActivityDoubtSessionPageBinding binding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
