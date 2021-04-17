@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/design_default_color_secondary_variant"
+    android:background="@drawable/sunset_clouds_192374"
 
     tools:context=".RegisterActivity">
 
@@ -83,7 +83,7 @@
         android:layout_marginBottom="28dp"
         android:background="@drawable/btn_bg"
         android:text="Register"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"

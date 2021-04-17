@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@color/design_default_color_secondary_variant"
+    android:background="@drawable/sunset_clouds_192374"
 
     tools:context=".LoginActivity">
 
