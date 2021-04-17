@@ -24,10 +24,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         auth=FirebaseAuth.getInstance();
+
         binding.viewPager.setAdapter(new FragmentAdapter(getSupportFragmentManager()));
         binding.tablayout.setupWithViewPager(binding.viewPager);
-        //binding.tablayout.getTabAt(0).setText("Student");
-        //binding.tablayout.getTabAt(1).setText("Teacher");
     }
 
     @Override

@@ -16,8 +16,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.nitukbt19.StudentBuddy.Adapter.UserAdapter;
 import com.nitukbt19.StudentBuddy.Models.Users;
-import com.nitukbt19.StudentBuddy.R;
-import com.nitukbt19.StudentBuddy.databinding.FragmentStudentBinding;
 import com.nitukbt19.StudentBuddy.databinding.FragmentTeacherBinding;
 
 import java.util.ArrayList;
@@ -52,7 +50,7 @@ public class TeacherFragment extends Fragment {
                 list.clear();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     Users user = dataSnapshot.getValue(Users.class);
-                    user.getUserId();// Reverify
+                    user.getUserId(dataSnapshot.getKey());// Reverify
                     list.add(user);
                 }
                 adapter.notifyDataSetChanged();

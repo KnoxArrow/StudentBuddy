@@ -39,7 +39,6 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
         Users users = list.get(position);
         Picasso.get().load(users.getProfilepic()).placeholder(R.drawable.icon_male_ph).into(holder.image);
         holder.UserName.setText(users.getUserName());
-
     }
 
     @Override
@@ -48,10 +47,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-
-
         TextView UserName;
-
         ImageView image;
 
         public ViewHolder(@NonNull View itemView) {
@@ -59,8 +55,5 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
             UserName = itemView.findViewById(R.id.UserName);
             image = itemView.findViewById(R.id.profile_image);
         }
-
-
     }
-
 }

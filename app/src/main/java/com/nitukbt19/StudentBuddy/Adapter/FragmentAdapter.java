@@ -20,7 +20,6 @@ public class FragmentAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         switch (position){
-            case 0: return new StudentFragment();
             case 1:return new TeacherFragment();
             case 2: return new SolvedDoubtFragment();
             default: return new StudentFragment();
