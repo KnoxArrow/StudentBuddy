@@ -31,7 +31,7 @@ public class DoubtSessionPage extends AppCompatActivity {
         database =FirebaseDatabase.getInstance();
         auth=FirebaseAuth.getInstance();
         final String senderId = auth.getUid();
-        String recieverId =getIntent().getStringExtra("userId");
+        String receiverId =getIntent().getStringExtra("userId");
         String userName =getIntent().getStringExtra("userName");
 
         String ProfilePic =getIntent().getStringExtra("ProfilePic");
@@ -53,8 +53,8 @@ public class DoubtSessionPage extends AppCompatActivity {
         LinearLayoutManager layoutManager=new LinearLayoutManager(this);
         binding.doubtRecylerView.setLayoutManager(layoutManager);
 
-        final String senderRoom=senderId+recieverId;
-        final String recieverRoom=recieverId+senderId;
+        final String senderRoom=senderId+receiverId;
+        final String receiverRoom=receiverId+senderId;
         binding.send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -69,7 +69,7 @@ public class DoubtSessionPage extends AppCompatActivity {
                     @Override
                     public void onSuccess(Void aVoid) {
                         database.getReference().child("chats")
-                                .child(recieverRoom).push()
+                                .child(receiverRoom).push()
                                 .setValue(model).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
