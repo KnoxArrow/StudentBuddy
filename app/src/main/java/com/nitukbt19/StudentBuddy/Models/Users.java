@@ -29,6 +29,9 @@ public class Users {
         return userId;
     }
 
+    public void setUserId() {
+    }
+
     public void setUserId(String userId) {
         this.userId = userId;
     }
@@ -82,5 +85,4 @@ public class Users {
     public void setStudent(boolean student) {
         isStudent = student;
     }
-
 }

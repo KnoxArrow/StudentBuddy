@@ -51,12 +51,12 @@ public class StudentFragment extends Fragment {
                 list.clear();
                 for(DataSnapshot dataSnapshot:snapshot.getChildren()){
                     Users user=dataSnapshot.getValue(Users.class);
-                    user.setUserId(dataSnapshot.getKey());// get userId of current datasnapshot. actually not needed but for easy understanding
+                    user.setUserId();// get userId of current datasnapshot
+                    // actually not needed but for easy understanding: dataSnapshot.getKey()
                     list.add(user);
                 }
                 adapter.notifyDataSetChanged();
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 

@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import android.os.Bundle;
 import android.view.View;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 import com.nitukbt19.StudentBuddy.Adapter.ChatAdapter;
@@ -15,6 +16,7 @@ import com.squareup.picasso.Picasso;
 import android.content.Intent;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class DoubtSessionPage extends AppCompatActivity {
     ActivityDoubtSessionPageBinding binding;
@@ -29,7 +31,7 @@ public class DoubtSessionPage extends AppCompatActivity {
         database =FirebaseDatabase.getInstance();
         auth=FirebaseAuth.getInstance();
         final String senderId = auth.getUid();
-        String reciveId =getIntent().getStringExtra("userId");
+        String recieverId =getIntent().getStringExtra("userId");
         String userName =getIntent().getStringExtra("userName");
 
         String ProfilePic =getIntent().getStringExtra("ProfilePic");
@@ -51,6 +53,33 @@ public class DoubtSessionPage extends AppCompatActivity {
         LinearLayoutManager layoutManager=new LinearLayoutManager(this);
         binding.doubtRecylerView.setLayoutManager(layoutManager);
 
+        final String senderRoom=senderId+recieverId;
+        final String recieverRoom=recieverId+senderId;
+        binding.send.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String msg = binding.etMessage.getText().toString();
+                final MessagesModel model=new MessagesModel(senderId,msg);
+                model.setTimestamp(new Date().getTime());
+                binding.etMessage.setText("");
+
+                database.getReference().child("chats")
+                        .child(senderRoom).push()// push triggers messageId w.r.t. Time
+                        .setValue(model).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        database.getReference().child("chats")
+                                .child(recieverRoom).push()
+                                .setValue(model).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+
+                            }
+                        });
+                    }
+                });
+            }
+        });
 
     }
 
