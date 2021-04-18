@@ -1,5 +1,6 @@
 package com.nitukbt19.StudentBuddy;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
@@ -8,7 +9,10 @@ import android.view.View;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.nitukbt19.StudentBuddy.Adapter.ChatAdapter;
 import com.nitukbt19.StudentBuddy.Models.MessagesModel;
 import com.nitukbt19.StudentBuddy.databinding.ActivityDoubtSessionPageBinding;
@@ -55,6 +59,26 @@ public class DoubtSessionPage extends AppCompatActivity {
 
         final String senderRoom=senderId+receiverId;
         final String receiverRoom=receiverId+senderId;
+
+        database.getReference().child("chats")
+                .child(senderRoom)
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        messagesModels.clear();
+                        for(DataSnapshot snapshot1 : snapshot.getChildren()) {
+                            MessagesModel  model = snapshot1.getValue(MessagesModel.class);
+                            messagesModels.add(model);
+                        }
+                        chatAdapter.notifyDataSetChanged();
+                }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
         binding.send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
