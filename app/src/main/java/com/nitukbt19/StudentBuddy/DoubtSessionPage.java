@@ -1,20 +1,25 @@
 package com.nitukbt19.StudentBuddy;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.os.Bundle;
 import android.view.View;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
+import com.nitukbt19.StudentBuddy.Adapter.ChatAdapter;
+import com.nitukbt19.StudentBuddy.Models.MessagesModel;
 import com.nitukbt19.StudentBuddy.databinding.ActivityDoubtSessionPageBinding;
 import com.squareup.picasso.Picasso;
 import android.content.Intent;
 
+import java.util.ArrayList;
+
 public class DoubtSessionPage extends AppCompatActivity {
     ActivityDoubtSessionPageBinding binding;
-FirebaseDatabase database;
-FirebaseAuth auth;
+    FirebaseDatabase database;
+    FirebaseAuth auth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,8 +27,8 @@ FirebaseAuth auth;
         setContentView(binding.getRoot());
 
         database =FirebaseDatabase.getInstance();
-          auth=FirebaseAuth.getInstance();
-       final String senderId = auth.getUid();
+        auth=FirebaseAuth.getInstance();
+        final String senderId = auth.getUid();
         String reciveId =getIntent().getStringExtra("userId");
         String userName =getIntent().getStringExtra("userName");
 
@@ -37,6 +42,16 @@ FirebaseAuth auth;
                 startActivity(intent);
             }
         });
+
+        final ArrayList<MessagesModel> messagesModels=new ArrayList<>();
+
+        final ChatAdapter chatAdapter=new ChatAdapter(messagesModels,this);
+        binding.doubtRecylerView.setAdapter(chatAdapter);
+
+        LinearLayoutManager layoutManager=new LinearLayoutManager(this);
+        binding.doubtRecylerView.setLayoutManager(layoutManager);
+
+
     }
 
 }
