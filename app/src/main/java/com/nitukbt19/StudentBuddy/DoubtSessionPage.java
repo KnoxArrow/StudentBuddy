@@ -34,6 +34,7 @@ public class DoubtSessionPage extends AppCompatActivity {
 
         database =FirebaseDatabase.getInstance();
         auth=FirebaseAuth.getInstance();
+
         final String senderId = auth.getUid();
         String receiverId =getIntent().getStringExtra("userId");
         String userName =getIntent().getStringExtra("userName");

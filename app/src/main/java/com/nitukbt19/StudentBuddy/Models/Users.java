@@ -29,9 +29,6 @@ public class Users {
         return userId;
     }
 
-    public void setUserId() {
-    }
-
     public void setUserId(String userId) {
         this.userId = userId;
     }
