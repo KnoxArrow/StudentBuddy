@@ -51,9 +51,11 @@ public class StudentFragment extends Fragment {
                 list.clear();
                 for(DataSnapshot dataSnapshot:snapshot.getChildren()){
                     Users user=dataSnapshot.getValue(Users.class);
-                    user.setUserId();// get userId of current datasnapshot
-                    // actually not needed but for easy understanding: dataSnapshot.getKey()
-                    list.add(user);
+                    if(user.isStudent()) {
+                        user.setUserId();// get userId of current datasnapshot
+                        // actually not needed but for easy understanding: dataSnapshot.getKey()
+                        list.add(user);
+                    }
                 }
                 adapter.notifyDataSetChanged();
             }
