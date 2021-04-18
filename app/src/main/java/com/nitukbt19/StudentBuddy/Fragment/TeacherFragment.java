@@ -50,7 +50,7 @@ public class TeacherFragment extends Fragment {
                 list.clear();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     Users user = dataSnapshot.getValue(Users.class);
-                    user.getUserId(dataSnapshot.getKey());// Reverify
+                    user.setUserId(dataSnapshot.getKey());// Reverify
                     list.add(user);
                 }
                 adapter.notifyDataSetChanged();

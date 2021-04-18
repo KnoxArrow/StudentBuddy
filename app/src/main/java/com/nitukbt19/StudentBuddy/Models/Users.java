@@ -1,10 +1,12 @@
 package com.nitukbt19.StudentBuddy.Models;
 
+import android.provider.ContactsContract;
+
 public class Users {
-    String profilepic,userName,mail,password,userId,lastMessage;
+    String ProfilePic,userName,mail,password,userId,lastMessage;
     boolean  isStudent;
     public Users(String profilepic, String userName, String mail, String password, String userId, String lastMessage,boolean isStudent) {
-        this.profilepic = profilepic;
+        this.ProfilePic = ProfilePic;
         this.userName = userName;
         this.mail = mail;
         this.password = password;
@@ -23,12 +25,20 @@ public class Users {
         this.isStudent= isStudent;
     }
 
-    public String getProfilepic() {
-        return profilepic;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setProfilepic(String profilepic) {
-        this.profilepic = profilepic;
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getProfilePic() {
+        return ProfilePic;
+    }
+
+    public void setProfilePic(String ProfilePic) {
+        this.ProfilePic= ProfilePic;
     }
 
     public String getUserName() {
@@ -55,13 +65,7 @@ public class Users {
         this.password = password;
     }
 
-    public String getUserId(String key) {
-        return userId;
-    }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
 
     public String getLastMessage() {
         return lastMessage;
