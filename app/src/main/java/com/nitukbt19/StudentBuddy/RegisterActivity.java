@@ -42,6 +42,7 @@ public class RegisterActivity extends AppCompatActivity {
             startActivity(i);
             finish();
         });
+
         //disabling Register button till all inputs are entered
         binding.btnRegister.setEnabled(false);
         binding.switchStudent.setChecked(true);
@@ -63,7 +64,6 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
-
         // Register button Logic
         binding.btnRegister.setOnClickListener(v -> {
             progressDialog.show();
@@ -80,10 +80,10 @@ public class RegisterActivity extends AppCompatActivity {
                                 //addition to Student or Teacher List
                                 if(binding.switchStudent.isChecked()) {
                                     StudentList student=new StudentList(id,binding.inputUsername.getText().toString());
-                                    database.getReference().child("StudentList").child(student.getUserName());
+                                    database.getReference().child("StudentList").child(student.getUserName()).setValue(user.getUserId());
                                 }else{
                                     TeacherList teacher =new TeacherList(id,binding.inputUsername.getText().toString());
-                                    database.getReference().child("TeacherList").child(teacher.getUserName());
+                                    database.getReference().child("TeacherList").child(teacher.getUserName()).setValue(user.getUserId());
                                 }
 
                                 Toast.makeText(RegisterActivity.this, "Successfully Registered in Student Buddy", Toast.LENGTH_SHORT).show();

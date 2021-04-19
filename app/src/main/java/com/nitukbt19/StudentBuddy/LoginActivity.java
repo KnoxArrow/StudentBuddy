@@ -58,7 +58,7 @@ public class LoginActivity extends AppCompatActivity {
         // Progress Dialog
         progressDialog=new ProgressDialog(LoginActivity.this);
         progressDialog.setTitle("Logging In");
-        progressDialog.setMessage("Welcome Back");
+        progressDialog.setMessage("Verifying Credentials");
 
         binding.tvSignUp.setOnClickListener(view -> {
             startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
