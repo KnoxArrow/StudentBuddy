@@ -17,6 +17,9 @@ public class MessagesModel {
         this.timestamp = timestamp;
     }
 
+    public MessagesModel() {
+    }
+
     public String getuId() {
         return uId;
     }
