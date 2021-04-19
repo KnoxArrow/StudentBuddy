@@ -78,8 +78,8 @@ public class ChatAdapter extends RecyclerView.Adapter{
         TextView SenderMsg,SenderTime;
         public SenderViewHolder(@NonNull View itemView) {
             super(itemView);
-            SenderMsg=itemView.findViewById(R.id.tvRecieverMessage);
-            SenderTime=itemView.findViewById(R.id.tvRecieverTime);
+            SenderMsg=itemView.findViewById(R.id.tvSenderMessage);
+            SenderTime=itemView.findViewById(R.id.tvSenderTime);
         }
     }
 
