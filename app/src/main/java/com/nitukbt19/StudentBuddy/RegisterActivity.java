@@ -80,10 +80,10 @@ public class RegisterActivity extends AppCompatActivity {
                                 //addition to Student or Teacher List
                                 if(binding.switchStudent.isChecked()) {
                                     StudentList student=new StudentList(id,binding.inputUsername.getText().toString());
-                                    database.getReference().child("StudentList").setValue(student.getUserName());
+                                    database.getReference().child("StudentList").child(student.getUserName());
                                 }else{
                                     TeacherList teacher =new TeacherList(id,binding.inputUsername.getText().toString());
-                                    database.getReference().child("TeacherList").setValue(teacher.getUserName());
+                                    database.getReference().child("TeacherList").child(teacher.getUserName());
                                 }
 
                                 Toast.makeText(RegisterActivity.this, "Successfully Registered in Student Buddy", Toast.LENGTH_SHORT).show();
