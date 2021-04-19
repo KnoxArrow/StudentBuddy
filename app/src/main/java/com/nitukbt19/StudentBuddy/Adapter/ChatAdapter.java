@@ -53,7 +53,7 @@ public class ChatAdapter extends RecyclerView.Adapter{
         MessagesModel messagesModel= messagesModels.get(position);
 
         if(holder.getClass()==SenderViewHolder.class){
-            ((SenderViewHolder)holder).SenderMsg.setText(messagesModel.getMessage());
+            ((SenderViewHolder)holder).senderMsg.setText(messagesModel.getMessage());
         }else{
             ((RecieverViewHolder)holder).recieverMsg.setText(messagesModel.getMessage());
         }
@@ -75,11 +75,11 @@ public class ChatAdapter extends RecyclerView.Adapter{
     }
     public class SenderViewHolder extends RecyclerView.ViewHolder{
 
-        TextView SenderMsg,SenderTime;
+        TextView senderMsg,senderTime;
         public SenderViewHolder(@NonNull View itemView) {
             super(itemView);
-            SenderMsg=itemView.findViewById(R.id.tvSenderMessage);
-            SenderTime=itemView.findViewById(R.id.tvSenderTime);
+            senderMsg=itemView.findViewById(R.id.tvSenderMessage);
+            senderTime=itemView.findViewById(R.id.tvSenderTime);
         }
     }
 
