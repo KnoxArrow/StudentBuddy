@@ -35,7 +35,7 @@ public class ChatAdapter extends RecyclerView.Adapter{
             return new SenderViewHolder(view);
         }else{
             View view= LayoutInflater.from(context).inflate(R.layout.sample_reciever,parent,false);
-            return new SenderViewHolder(view);
+            return new RecieverViewHolder(view);
         }
     }
 
@@ -82,6 +82,5 @@ public class ChatAdapter extends RecyclerView.Adapter{
             senderTime=itemView.findViewById(R.id.tvSenderTime);
         }
     }
-
 
 }

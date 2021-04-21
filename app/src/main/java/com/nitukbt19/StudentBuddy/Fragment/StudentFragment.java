@@ -53,7 +53,6 @@ public class StudentFragment extends Fragment {
                     Users user=dataSnapshot.getValue(Users.class);
                     if(user.isStudent()) {
                         user.setUserId(dataSnapshot.getKey());// get userId of current datasnapshot
-                        // actually not needed but for easy understanding: dataSnapshot.getKey()
                         list.add(user);
                     }
                 }
