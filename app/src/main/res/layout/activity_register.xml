@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/sunset_clouds_192374"
+    android:background="@drawable/bg_loginpage"
 
     tools:context=".RegisterActivity">
 
@@ -19,7 +19,7 @@
         android:background="@drawable/input_bg"
         android:drawableLeft="@drawable/ic_baseline_security"
         android:ems="10"
-        android:hint="Password (length > 5 )"
+        android:hint="Password "
         android:inputType="textPassword"
         android:paddingLeft="20dp"
         android:paddingTop="10dp"
@@ -139,7 +139,7 @@
         android:background="@drawable/input_bg"
         android:drawableLeft="@drawable/ic_baseline_security"
         android:ems="10"
-        android:hint="confirmPassword"
+        android:hint="confirm Password"
         android:inputType="textPassword"
         android:paddingLeft="20dp"
         android:paddingTop="10dp"
